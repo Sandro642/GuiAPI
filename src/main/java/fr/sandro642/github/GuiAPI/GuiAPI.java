@@ -11,18 +11,14 @@ import org.bukkit.plugin.Plugin;
 public class GuiAPI {
 
     private static GuiAPI instance;
-    public static Inventory inventory;
-
     private Plugin plugin;
 
     public GuiAPI(Plugin plugin) {
         this.plugin = plugin;
     }
 
-    // set
-
-    public void createinv(String name, int size) {
-        name = inventory.toString();
+    public void createInv(String name, int size) {
+        inventory = plugin.getServer().createInventory(null, size, name);
         CreateGui.inventorySizes.put(name, size);
     }
 
@@ -31,14 +27,10 @@ public class GuiAPI {
     }
 
     public void setItem(Material material, int slot, String name) {
-        OpenGui.addItem(material, slot, name);
+        inventory.setItem(slot, new ItemStack(material));
     }
 
-
-
-    // Getter class ChannelzAPI
-
-    public static GuiAPI use() {
+    public static GuiAPI getInstance() {
         return instance;
     }
 
