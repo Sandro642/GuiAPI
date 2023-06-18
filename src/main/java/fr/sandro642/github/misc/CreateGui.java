@@ -11,12 +11,11 @@ import java.util.Map;
 
 public class CreateGui {
 
-    private Plugin plugin;
+    private static Plugin plugin; // Change 'private' to 'private static' to allow access in the static method
     public static Map<String, Integer> inventorySizes;
 
     public static void setPlugin(Plugin plugin) {
         inventorySizes = new HashMap<>();
-        CreateGui.setPlugin(plugin);
+        CreateGui.plugin = plugin; // Assign the 'plugin' parameter to the static field
     }
-
 }
