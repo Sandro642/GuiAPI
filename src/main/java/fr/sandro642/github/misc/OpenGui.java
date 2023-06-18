@@ -14,10 +14,10 @@ import java.util.Map;
 
 public class OpenGui {
 
-    private Plugin plugin;
+    private static Plugin plugin; // Change 'private' to 'private static' to allow access in the static method
 
     public static void setPlugin(Plugin plugin) {
-        CreateGui.setPlugin(plugin);
+        OpenGui.plugin = plugin; // Assign the 'plugin' parameter to the static field
     }
 
     public static void openInventory(Player player, String name) {
@@ -34,8 +34,8 @@ public class OpenGui {
         if (GuiAPI.inventory != null) {
             ItemStack item = new ItemStack(material);
             ItemMeta itemMeta = item.getItemMeta();
-            item.setItemMeta(itemMeta);
             itemMeta.setDisplayName(name);
+            item.setItemMeta(itemMeta);
 
             GuiAPI.inventory.setItem(slot, item);
         }
