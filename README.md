@@ -41,3 +41,5 @@ For Gradle
 	        implementation 'com.github.Sandro642:GuiAPI:Tag'
 	}
 ```
+
+Bug of API not resolved
