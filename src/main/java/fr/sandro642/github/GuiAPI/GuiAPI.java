@@ -13,6 +13,7 @@ public class GuiAPI {
 
     private Plugin plugin;
     private Map<String, Inventory> inventories;
+    private static GuiAPI instance;
 
     public GuiAPI(Plugin plugin) {
         this.plugin = plugin;
@@ -42,5 +43,9 @@ public class GuiAPI {
         } else {
             plugin.getLogger().warning("Failed to add item to inventory '" + inventoryName + "'. The inventory does not exist.");
         }
+    }
+
+    public static GuiAPI use() {
+        return instance;
     }
 }
