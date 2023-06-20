@@ -1,5 +1,3 @@
-package fr.sandro642.github.GuiAPI;
-
 import fr.sandro642.github.misc.CreateGui;
 import fr.sandro642.github.misc.OpenGui;
 import org.bukkit.Material;
@@ -12,6 +10,7 @@ public class GuiAPI {
 
     private static GuiAPI instance;
     private Plugin plugin;
+    private Inventory inventory; // Ajout de la déclaration de la variable inventory
 
     public GuiAPI(Plugin plugin) {
         this.plugin = plugin;
@@ -35,3 +34,4 @@ public class GuiAPI {
     }
 
 }
+
