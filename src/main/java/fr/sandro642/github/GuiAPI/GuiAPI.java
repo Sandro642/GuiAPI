@@ -1,3 +1,5 @@
+package fr.sandro642.github.GuiAPI;
+
 import fr.sandro642.github.misc.CreateGui;
 import fr.sandro642.github.misc.OpenGui;
 import org.bukkit.Material;
