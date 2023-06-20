@@ -1,7 +1,7 @@
 package fr.sandro642.github.GuiAPI;
 
-import fr.sandro642.github.misc.CreateGui;
-import fr.sandro642.github.misc.OpenGui;
+import java.util.Map;
+import java.util.HashMap;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.inventory.Inventory;
