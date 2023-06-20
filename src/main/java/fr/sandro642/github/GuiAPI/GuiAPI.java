@@ -13,7 +13,7 @@ public class GuiAPI {
     private Plugin plugin;
     private Map<String, Inventory> inventories;
 
-    public CustomInventoryAPI(Plugin plugin) {
+    public GuiAPI(Plugin plugin) {
         this.plugin = plugin;
         this.inventories = new HashMap<>();
     }
