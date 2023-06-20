@@ -10,29 +10,36 @@ import org.bukkit.plugin.Plugin;
 
 public class GuiAPI {
 
-    private static GuiAPI instance;
     private Plugin plugin;
-    public static Inventory inventory; // Modifier la visibilité de la variable inventory en public
+    private Map<String, Inventory> inventories;
 
-    public GuiAPI(Plugin plugin) {
+    public CustomInventoryAPI(Plugin plugin) {
         this.plugin = plugin;
+        this.inventories = new HashMap<>();
     }
 
-    public void createInv(String name, int size) {
-        inventory = plugin.getServer().createInventory(null, size, name);
-        CreateGui.inventorySizes.put(name, size);
+    public void createInventory(String name, int size) {
+        Inventory inventory = Bukkit.createInventory(null, size, name);
+        inventories.put(name, inventory);
     }
 
-    public void openInv(Player player, String name) {
-        OpenGui.openInventory(player, name);
+    public void openInventory(Player player, String name) {
+        Inventory inventory = inventories.get(name);
+        if (inventory != null) {
+            player.openInventory(inventory);
+        } else {
+            player.sendMessage("The inventory '" + name + "' does not exist.");
+        }
     }
 
-    public void setItem(Material material, int slot, String name) {
-        inventory.setItem(slot, new ItemStack(material));
+    public void addItem(String inventoryName, int slot, Material material, String itemName) {
+        Inventory inventory = inventories.get(inventoryName);
+        if (inventory != null) {
+            ItemStack itemStack = new ItemStack(material);
+            itemStack.getItemMeta().setDisplayName(itemName);
+            inventory.setItem(slot, itemStack);
+        } else {
+            plugin.getLogger().warning("Failed to add item to inventory '" + inventoryName + "'. The inventory does not exist.");
+        }
     }
-
-    public static GuiAPI getInstance() {
-        return instance;
-    }
-
 }
