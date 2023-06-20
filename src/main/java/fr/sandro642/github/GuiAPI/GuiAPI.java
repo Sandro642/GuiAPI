@@ -12,7 +12,7 @@ public class GuiAPI {
 
     private static GuiAPI instance;
     private Plugin plugin;
-    public Inventory inventory; // Modifier la visibilité de la variable inventory en public
+    public static Inventory inventory; // Modifier la visibilité de la variable inventory en public
 
     public GuiAPI(Plugin plugin) {
         this.plugin = plugin;
