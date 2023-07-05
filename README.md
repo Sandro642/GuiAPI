@@ -42,4 +42,4 @@ For Gradle
 	}
 ```
 
-Bug of API not resolved
+Fini le 05/07/2023
